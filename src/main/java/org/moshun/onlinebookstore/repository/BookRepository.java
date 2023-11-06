@@ -7,9 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
+
     Book save(Book book);
 
     List<Book> findAll();
-
-    // Book updateById(Long id, Book book);
 }
