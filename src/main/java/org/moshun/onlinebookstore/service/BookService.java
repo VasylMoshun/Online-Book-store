@@ -11,5 +11,5 @@ public interface BookService {
 
     Book findById(Long id);
 
-    //public Book updateBook(Long id, Book book);
+    public Book updateBook(Long id, Book book);
 }

@@ -30,10 +30,16 @@ public class BookServiceImpl implements BookService {
         return book;
     }
 
-    //    @Override
-    //    public Book updateBook(Long id, Book book) {
-    //        Book bookById = bookRepository.findById(id).orElseThrow(
-    //                () -> new EntityNotFoundException("Could not find book by id " + id));
-    //        return bookRepository.updateById(id, book);
-    //    }
+        @Override
+        public Book updateBook(Long id, Book book) {
+            Book bookById = bookRepository.findById(id).orElseThrow(
+                    () -> new EntityNotFoundException("Could not find book by id " + id));
+            bookById.setAuthor(book.getAuthor());
+            bookById.setTitle(book.getTitle());
+            bookById.setPrice(book.getPrice());
+            bookById.setDescription(book.getDescription());
+            bookById.setIsbn(book.getIsbn());
+            bookById.setCoverImage(book.getCoverImage());
+            return bookRepository.save(bookById);
+        }
 }
