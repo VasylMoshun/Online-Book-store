@@ -1,6 +1,7 @@
 package org.moshun.onlinebookstore.service;
 
 import java.util.List;
+import org.moshun.onlinebookstore.dto.BookSearchParametersDto;
 import org.moshun.onlinebookstore.model.Book;
 
 public interface BookService {
@@ -14,4 +15,6 @@ public interface BookService {
     Book updateBook(Long id, Book book);
 
     void deleteBookById(Long id);
+
+    List<Book> search(BookSearchParametersDto parametersDto);
 }
