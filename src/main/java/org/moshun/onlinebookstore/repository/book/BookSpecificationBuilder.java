@@ -1,5 +1,6 @@
 package org.moshun.onlinebookstore.repository.book;
 
+import java.util.Arrays;
 import lombok.RequiredArgsConstructor;
 import org.moshun.onlinebookstore.dto.BookSearchParametersDto;
 import org.moshun.onlinebookstore.model.Book;
@@ -19,17 +20,17 @@ public class BookSpecificationBuilder implements SpecificationBuilder<Book> {
         if (bookSearchParametersDto.title() != null
                 && bookSearchParametersDto.title().length > 0) {
             spec = spec.and(specificationProviderManager.getSpecification("title")
-                    .getSpecification(bookSearchParametersDto.title()));
+                    .getSpecification(Arrays.toString(bookSearchParametersDto.title())));
         }
         if (bookSearchParametersDto.author() != null
                 && bookSearchParametersDto.author().length > 0) {
             spec = spec.and(specificationProviderManager.getSpecification("author")
-                    .getSpecification(bookSearchParametersDto.author()));
+                    .getSpecification(Arrays.toString(bookSearchParametersDto.author())));
         }
         if (bookSearchParametersDto.isbn() != null
                 && bookSearchParametersDto.isbn().length > 0) {
             spec = spec.and(specificationProviderManager.getSpecification("isbn")
-                    .getSpecification(bookSearchParametersDto.isbn()));
+                    .getSpecification(Arrays.toString(bookSearchParametersDto.isbn())));
         }
         return spec;
     }
