@@ -17,7 +17,7 @@ public class BookSpecificationBuilder implements SpecificationBuilder<Book> {
     public Specification<Book> build(BookSearchParametersDto bookSearchParametersDto) {
         Specification<Book> spec = Specification.where(null);
         if (bookSearchParametersDto.title() != null
-                && bookSearchParametersDto.title.length > 0) {
+                && bookSearchParametersDto.title().length > 0) {
             spec = spec.and(specificationProviderManager.getSpecification("title")
                     .getSpecification(bookSearchParametersDto.title()));
         }
