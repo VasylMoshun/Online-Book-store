@@ -44,7 +44,8 @@ public class BookController {
 
     @GetMapping("/search")
     public List<BookDto> searchBooks(BookSearchParametersDto searchParameters) {
-        return bookService.search(searchParameters).stream().map(bookMapper::toDto).toList();
+        return bookService.search(searchParameters).stream()
+                .map(bookMapper::toDto).toList();
     }
 
     @PostMapping
