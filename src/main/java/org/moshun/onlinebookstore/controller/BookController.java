@@ -2,6 +2,7 @@ package org.moshun.onlinebookstore.controller;
 
 import java.util.List;
 import org.moshun.onlinebookstore.dto.BookDto;
+import org.moshun.onlinebookstore.dto.BookSearchParametersDto;
 import org.moshun.onlinebookstore.dto.CreateBookRequestDto;
 import org.moshun.onlinebookstore.mapper.BookMapper;
 import org.moshun.onlinebookstore.model.Book;
@@ -39,6 +40,12 @@ public class BookController {
     public BookDto getBookById(@PathVariable Long id) {
         Book book = bookService.findById(id);
         return bookMapper.toDto(book);
+    }
+
+    @GetMapping("/search")
+    public List<BookDto> searchBooks(BookSearchParametersDto searchParameters) {
+        return bookService.search(searchParameters).stream()
+                .map(bookMapper::toDto).toList();
     }
 
     @PostMapping

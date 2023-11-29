@@ -2,15 +2,21 @@ package org.moshun.onlinebookstore.service;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.moshun.onlinebookstore.dto.BookSearchParametersDto;
 import org.moshun.onlinebookstore.exception.EntityNotFoundException;
+import org.moshun.onlinebookstore.mapper.BookMapper;
 import org.moshun.onlinebookstore.model.Book;
-import org.moshun.onlinebookstore.repository.BookRepository;
+import org.moshun.onlinebookstore.repository.book.BookRepository;
+import org.moshun.onlinebookstore.repository.book.BookSpecificationBuilder;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
+    private final BookSpecificationBuilder specificationBuilder;
+    private final BookMapper bookMapper;
 
     @Override
     public Book save(Book book) {
@@ -48,4 +54,9 @@ public class BookServiceImpl implements BookService {
         bookRepository.deleteById(id);
     }
 
+    @Override
+    public List<Book> search(BookSearchParametersDto parameters) {
+        Specification<Book> bookSpecification = specificationBuilder.build(parameters);
+        return bookRepository.findAll(bookSpecification);
+    }
 }

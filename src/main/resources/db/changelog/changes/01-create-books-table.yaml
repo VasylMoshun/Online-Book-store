@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-book-table
+      id: create-book_store
       author: moshun
       changes:
         - createTable:
@@ -41,11 +41,8 @@ databaseChangeLog:
                    name: cover_image
                    type: varchar(255)
               - column:
-                   name: is_delete
+                   name: is_deleted
                    type: boolean
                    defaultValueBoolean: false
                    constraints:
                      nullable: false
-
-
-
