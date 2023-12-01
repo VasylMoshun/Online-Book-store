@@ -8,6 +8,7 @@ import org.moshun.onlinebookstore.mapper.BookMapper;
 import org.moshun.onlinebookstore.model.Book;
 import org.moshun.onlinebookstore.repository.book.BookRepository;
 import org.moshun.onlinebookstore.repository.book.BookSpecificationBuilder;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> findAll() {
-        return bookRepository.findAll();
+    public List<Book> findAll(Pageable pageable) {
+        return bookRepository.findAll(pageable).stream().toList();
     }
 
     @Override
@@ -55,8 +56,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> search(BookSearchParametersDto parameters) {
+    public List<Book> search(BookSearchParametersDto parameters, Pageable pageable) {
         Specification<Book> bookSpecification = specificationBuilder.build(parameters);
-        return bookRepository.findAll(bookSpecification);
+        return bookRepository.findAll(bookSpecification,pageable).stream().toList();
     }
 }

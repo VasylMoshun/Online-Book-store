@@ -12,5 +12,4 @@ public interface BookRepository extends JpaRepository<Book, Long>, JpaSpecificat
     Book save(Book book);
 
     List<Book> findAll();
-
 }
