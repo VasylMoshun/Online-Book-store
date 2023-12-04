@@ -1,7 +1,7 @@
 package org.moshun.onlinebookstore.service;
 
 import java.util.List;
-import org.moshun.onlinebookstore.dto.BookSearchParametersDto;
+import org.moshun.onlinebookstore.dto.bookDto.BookSearchParametersDto;
 import org.moshun.onlinebookstore.model.Book;
 import org.springframework.data.domain.Pageable;
 

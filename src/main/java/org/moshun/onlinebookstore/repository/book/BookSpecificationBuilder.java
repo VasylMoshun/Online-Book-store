@@ -1,7 +1,7 @@
 package org.moshun.onlinebookstore.repository.book;
 
 import lombok.RequiredArgsConstructor;
-import org.moshun.onlinebookstore.dto.BookSearchParametersDto;
+import org.moshun.onlinebookstore.dto.bookDto.BookSearchParametersDto;
 import org.moshun.onlinebookstore.model.Book;
 import org.moshun.onlinebookstore.repository.SpecificationBuilder;
 import org.moshun.onlinebookstore.repository.SpecificationProviderManager;
