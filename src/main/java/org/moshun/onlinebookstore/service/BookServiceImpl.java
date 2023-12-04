@@ -2,7 +2,7 @@ package org.moshun.onlinebookstore.service;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.moshun.onlinebookstore.dto.bookDto.BookSearchParametersDto;
+import org.moshun.onlinebookstore.dto.bookdto.BookSearchParametersDto;
 import org.moshun.onlinebookstore.exception.EntityNotFoundException;
 import org.moshun.onlinebookstore.mapper.BookMapper;
 import org.moshun.onlinebookstore.model.Book;

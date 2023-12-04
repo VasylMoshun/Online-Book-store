@@ -1,4 +1,4 @@
-package org.moshun.onlinebookstore.dto.userDto;
+package org.moshun.onlinebookstore.dto.userdto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

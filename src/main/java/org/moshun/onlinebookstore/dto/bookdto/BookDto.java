@@ -1,4 +1,4 @@
-package org.moshun.onlinebookstore.dto.bookDto;
+package org.moshun.onlinebookstore.dto.bookdto;
 
 import java.math.BigDecimal;
 import lombok.Data;

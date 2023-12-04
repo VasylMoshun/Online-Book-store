@@ -1,9 +1,8 @@
 package org.moshun.onlinebookstore.service;
 
-
 import lombok.RequiredArgsConstructor;
-import org.moshun.onlinebookstore.dto.userDto.UserRegistrationRequestDto;
-import org.moshun.onlinebookstore.dto.userDto.UserResponseDto;
+import org.moshun.onlinebookstore.dto.userdto.UserRegistrationRequestDto;
+import org.moshun.onlinebookstore.dto.userdto.UserResponseDto;
 import org.moshun.onlinebookstore.exception.RegistrationException;
 import org.moshun.onlinebookstore.mapper.UserMapper;
 import org.moshun.onlinebookstore.model.User;
