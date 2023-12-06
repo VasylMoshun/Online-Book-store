@@ -9,6 +9,7 @@ import org.moshun.onlinebookstore.dto.userdto.UserResponseDto;
 import org.moshun.onlinebookstore.exception.RegistrationException;
 import org.moshun.onlinebookstore.service.UserService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ public class AuthenticationController {
 
     @PostMapping("registration")
     @Operation(summary = "Registration a new user", description = "Registration new user")
-    public UserResponseDto register(@Valid UserRegistrationRequestDto request)
+    public UserResponseDto register(@RequestBody @Valid UserRegistrationRequestDto request)
             throws RegistrationException {
         return userService.register(request);
     }
