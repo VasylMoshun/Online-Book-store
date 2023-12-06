@@ -26,8 +26,6 @@ public class UserRegistrationRequestDto {
     @Size(min = 8, max = 100)
     private String password;
 
-    @Size(min = 8, max = 100)
-    @NotBlank
     private String repeatPassword;
 
     private String shippingAddress;
