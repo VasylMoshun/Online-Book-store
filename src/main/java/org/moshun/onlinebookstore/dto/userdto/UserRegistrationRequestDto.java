@@ -5,9 +5,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.moshun.onlinebookstore.validation.FieldsValueMatch;
 
 @Data
 @RequiredArgsConstructor
+@FieldsValueMatch(field = "password", fieldMatch = "repeatPassword")
 public class UserRegistrationRequestDto {
     @NotBlank(message = "firstName from 1 to 25 symbols")
     @Size(min = 1, max = 25)

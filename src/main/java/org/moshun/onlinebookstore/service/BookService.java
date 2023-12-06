@@ -2,6 +2,9 @@ package org.moshun.onlinebookstore.service;
 
 import java.util.List;
 import org.moshun.onlinebookstore.dto.bookdto.BookSearchParametersDto;
+import org.moshun.onlinebookstore.dto.userdto.UserRegistrationRequestDto;
+import org.moshun.onlinebookstore.dto.userdto.UserResponseDto;
+import org.moshun.onlinebookstore.exception.RegistrationException;
 import org.moshun.onlinebookstore.model.Book;
 import org.springframework.data.domain.Pageable;
 
@@ -18,4 +21,7 @@ public interface BookService {
     void deleteBookById(Long id);
 
     List<Book> search(BookSearchParametersDto parametersDto, Pageable pageable);
+
+    UserResponseDto registration(UserRegistrationRequestDto requestDto)
+            throws RegistrationException;
 }
