@@ -19,8 +19,6 @@ public class UserRegistrationRequestDto {
     @Size(min = 1, max = 25)
     private String lastName;
 
-    @NotBlank(message = "email from 8 to 25 symbols")
-    @Size(min = 8, max = 25)
     @Email
     private String email;
 
