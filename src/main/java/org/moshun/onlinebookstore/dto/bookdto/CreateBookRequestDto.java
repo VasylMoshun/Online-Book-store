@@ -1,4 +1,4 @@
-package org.moshun.onlinebookstore.dto;
+package org.moshun.onlinebookstore.dto.bookdto;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotNull;

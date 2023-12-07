@@ -2,10 +2,11 @@ package org.moshun.onlinebookstore.service;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.moshun.onlinebookstore.dto.BookSearchParametersDto;
+import org.moshun.onlinebookstore.dto.bookdto.BookSearchParametersDto;
 import org.moshun.onlinebookstore.exception.EntityNotFoundException;
-import org.moshun.onlinebookstore.mapper.BookMapper;
+import org.moshun.onlinebookstore.mapper.UserMapper;
 import org.moshun.onlinebookstore.model.Book;
+import org.moshun.onlinebookstore.repository.UserRepository;
 import org.moshun.onlinebookstore.repository.book.BookRepository;
 import org.moshun.onlinebookstore.repository.book.BookSpecificationBuilder;
 import org.springframework.data.domain.Pageable;
@@ -17,7 +18,8 @@ import org.springframework.stereotype.Service;
 public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
     private final BookSpecificationBuilder specificationBuilder;
-    private final BookMapper bookMapper;
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Override
     public Book save(Book book) {
@@ -31,10 +33,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book findById(Long id) {
-        Book book = bookRepository.findById(id).orElseThrow(
+        return bookRepository.findById(id).orElseThrow(
                 () -> new EntityNotFoundException("Could not find book by id " + id)
         );
-        return book;
     }
 
     @Override
