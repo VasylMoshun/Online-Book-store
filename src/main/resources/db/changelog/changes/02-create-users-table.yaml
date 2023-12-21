@@ -48,6 +48,7 @@ databaseChangeLog:
               - column:
                   name: is_deleted
                   type: BOOLEAN
+                  defaultValue: FALSE
                   constraints:
                     nullable: false
 

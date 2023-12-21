@@ -11,6 +11,7 @@ import org.moshun.onlinebookstore.model.Book;
 import org.moshun.onlinebookstore.service.BookService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -57,6 +58,7 @@ public class BookController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Operation(summary = "Create a new book", description = "Create a new book")
     public BookDto createBook(@RequestBody CreateBookRequestDto bookDto) {
         Book book = bookService.save(bookMapper.toModel(bookDto));
@@ -64,6 +66,7 @@ public class BookController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Operation(summary = "Update a  book by id", description = "Update a  book by id")
     public BookDto updatedBook(@PathVariable Long id,
                                @RequestBody CreateBookRequestDto requestDto) {
@@ -71,6 +74,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Operation(summary = "Delete  a  book by id", description = "Delete a  book by id")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBook(@PathVariable Long id) {

@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-admin-user
+      author: moshun
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: email
+                  value: admin@example.com
+              - column:
+                  name: password
+                  value: $2y$10$y1BhoO07Fz7nBUpXwYMkketl/8Ok0Ary2oJzpELPvsv/r62CXjkFK
+              - column:
+                  name: first_name
+                  value: Admin
+              - column:
+                  name: last_name
+                  value: User
+              - column:
+                  name: shipping_address
+                  value: null
+        - insert:
+            tableName: users_roles
+            columns:
+              - column:
+                  name: user_id
+                  value: 1
+              - column:
+                  name: role_id
+                  value: 2
